@@ -3,23 +3,8 @@ from gliner import GLiNER
 import random
 from annotated_text import annotated_text
 
-# Predefined list of colors
-COLOR_LIST = [
-    "#FFB6C1", "#B0E0E6", "#FAFAD2", "#FFDAB9", 
-    "#E6E6FA", "#E0FFFF", "#F5DEB3", "#98FB98", 
-    "#FFE4E1", "#D8BFD8"
-]
-
-
-# Function to assign random colors to entity types
-def get_entity_colors(entities):
-    unique_labels = set(ent['label'] for ent in entities)
-    entity_colors = {label: random.choice(COLOR_LIST) for label in unique_labels}
-    return entity_colors
-
 # Function to render entities using st-annotated-text
 def render_entities(text, entities):
-    entity_colors = get_entity_colors(entities)
     annotated_text_list = []
     current_pos = 0
 
